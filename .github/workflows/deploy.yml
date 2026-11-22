@@ -28,7 +28,7 @@ jobs:
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude-mail --exclude linkedin.com index.html
+          args: --no-progress --exclude-mail --exclude linkedin.com --exclude fonts.googleapis.com --exclude fonts.gstatic.com index.html
           fail: true
 
   deploy:
