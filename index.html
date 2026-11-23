@@ -4,154 +4,356 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Nirvar Roy Vaskar · Machine learning researcher</title>
-<meta name="description" content="Nirvar Roy Vaskar: machine learning researcher working on computer vision, model robustness and evaluation methodology. Master of Data Science, Universiti Malaya. Applying for PhD positions.">
+<meta name="description" content="Nirvar Roy Vaskar: machine learning researcher working on robustness and shortcut learning in visual classification. Master of Data Science, Universiti Malaya. Applying for fully funded PhD positions.">
 <meta property="og:title" content="Nirvar Roy Vaskar">
-<meta property="og:description" content="Machine learning researcher. Computer vision, model robustness and evaluation methodology.">
+<meta property="og:description" content="Machine learning researcher. Robustness and shortcut learning in visual classification.">
 <meta property="og:type" content="website">
+<meta property="og:image" content="https://nirvarr.github.io/assets/avatar.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231D4E89'/%3E%3C/svg%3E">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&amp;family=Source+Serif+4:opsz,wght@8..60,600;8..60,700&amp;display=swap" rel="stylesheet">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231F4E79'/%3E%3C/svg%3E">
 <style>
 :root{
-  --ink:#1C2024;
-  --muted:#5B6470;
-  --accent:#1D4E89;
-  --accent-dark:#0F2F57;
-  --rule:#E3E7EC;
-  --chip:#DCE3EC;
-  --wash:#F5F7FA;
+  --ink:#1C2430;
+  --body:#3A4452;
+  --muted:#5B6472;
+  --accent:#1F4E79;
+  --accent-dark:#163A5C;
+  --rule:#E3E6EA;
+  --line:#D5DAE0;
+  --chip:#EEF2F6;
+  --wash:#F6F7F9;
   --paper:#FFFFFF;
   --serif:"Source Serif 4",Georgia,serif;
-  --sans:"Source Sans 3",system-ui,sans-serif;
+  --sans:Inter,system-ui,sans-serif;
 }
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-body{margin:0;background:var(--paper);color:var(--ink);font:400 1.0625rem/1.7 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:var(--accent);text-decoration-thickness:1px;text-underline-offset:.18em}
+body{margin:0;background:var(--wash);color:var(--ink);font:400 1rem/1.6 var(--sans);-webkit-font-smoothing:antialiased}
+a{color:var(--accent);text-underline-offset:.18em}
 a:hover{color:var(--accent-dark)}
 a:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
 .skip{position:absolute;left:-999px}
 .skip:focus{left:1rem;top:1rem;background:var(--paper);padding:.5rem 1rem;z-index:10}
-.col{max-width:47.5rem;margin:0 auto;padding-inline:2rem}
+.wrap{max-width:65rem;margin:0 auto;padding-inline:1.5rem}
 
-/* profile header */
-.profile{background:var(--wash);border-bottom:1px solid var(--rule)}
-.profile .col{display:flex;flex-direction:column;align-items:center;text-align:center;gap:1rem;padding-block:3.5rem 2.5rem}
-.avatar{width:9.5rem;height:9.5rem;border-radius:50%;background:var(--chip);border:4px solid var(--paper);display:flex;align-items:center;justify-content:center;font:400 2.6rem/1 var(--serif);color:var(--accent);object-fit:cover}
-.who{display:flex;flex-direction:column;gap:.25rem}
-.who h1{margin:0;font:600 2.125rem/1.25 var(--serif)}
-.who p{margin:0;font-size:1.125rem;color:var(--muted)}
-.links{display:flex;flex-wrap:wrap;justify-content:center;gap:.4rem 1.5rem;margin:0;padding:0;list-style:none;font-size:.95rem}
-
-/* nav */
-.site-nav{border-top:1px solid var(--rule);background:var(--paper)}
-.site-nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem 2.25rem;margin:0 auto;padding:.875rem 2rem;list-style:none;max-width:47.5rem}
-.site-nav a{color:var(--muted);text-decoration:none}
-.site-nav a:hover{color:var(--ink)}
-.site-nav a[aria-current]{color:var(--ink);font-weight:600}
+/* header */
+.top{background:var(--paper);border-bottom:1px solid var(--rule)}
+.banner{height:10.5rem;background:var(--accent)}
+.avatar{display:block;width:8.75rem;height:8.75rem;margin-top:-4.375rem;border-radius:50%;border:4px solid var(--paper);object-fit:cover;background:#DDE3EA}
+.idrow{display:flex;flex-wrap:wrap;gap:1rem 2rem;align-items:flex-end;justify-content:space-between;padding:1rem 0 1.25rem}
+.who{flex:1 1 22rem;min-width:0}
+.who h1{margin:0;font:700 2.375rem/1.15 var(--serif)}
+.who .role{margin:.375rem 0 0;font-size:1.0625rem;color:var(--body)}
+.who .tags{margin:.125rem 0 0;font-size:.9375rem;color:var(--muted)}
+.pills{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
+.pills a{display:inline-flex;align-items:center;gap:.5rem;min-height:2.75rem;padding:0 .875rem;border:1px solid var(--line);border-radius:1.375rem;text-decoration:none;color:var(--ink);font-size:.875rem;font-weight:500}
+.pills a:hover{border-color:var(--accent);color:var(--accent)}
+.pills svg{width:1.125rem;height:1.125rem;flex:none}
+.tabs{display:flex;flex-wrap:wrap;gap:.25rem .5rem;margin:0;padding:0;list-style:none;border-top:1px solid var(--rule)}
+.tabs a{display:inline-flex;align-items:center;min-height:3rem;padding:0 .875rem;border-bottom:3px solid transparent;color:#4A5361;text-decoration:none;font-size:.9375rem;font-weight:500}
+.tabs a:hover{color:var(--ink)}
+.tabs a[aria-current="page"]{border-bottom-color:var(--accent);color:var(--accent);font-weight:600}
 
 /* content */
-main.col{display:flex;flex-direction:column;gap:3rem;padding-block:3.5rem 5rem}
-section{display:flex;flex-direction:column;gap:1rem;scroll-margin-top:1.5rem}
-h2{margin:0;font:600 1.375rem/1.3 var(--serif)}
-#about h2{font-size:2rem;line-height:1.25}
-p{margin:0;max-width:38em}
-.signoff{font-style:italic;color:var(--muted)}
+main{padding-block:2rem 3.5rem}
+.tab{display:flex;flex-direction:column;gap:1.5rem;scroll-margin-top:1rem}
+.tab + .tab{margin-top:3rem}
+.js .tab + .tab{margin-top:0}
+.tab[hidden]{display:none}
+.page-title{margin:0;font:700 2rem/1.2 var(--serif)}
+.card{background:var(--paper);border:1px solid var(--rule);border-radius:.5rem;padding:2rem}
+.card h2{margin:0 0 .875rem;font:600 1.625rem/1.25 var(--serif)}
+.card h3.serif{margin:0 0 .5rem;font:600 1.3125rem/1.3 var(--serif)}
+.card p{margin:0 0 .875rem}
+.card p:last-child{margin-bottom:0}
+.split{display:flex;flex-wrap:wrap;gap:1.5rem;align-items:flex-start}
+.split > .main{flex:999 1 35rem;min-width:0;display:flex;flex-direction:column;gap:1.5rem}
+.split > aside{flex:1 1 16rem;min-width:0;padding:1.75rem}
+.label{margin:0;font-size:.8125rem;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.label.accent{color:var(--accent);letter-spacing:.08em}
+.glance{display:flex;flex-direction:column;gap:1.125rem}
+.glance h2{font-size:1.375rem;margin:0}
+.glance p{margin:0}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:2.75rem;padding:0 1.125rem;border-radius:.375rem;background:var(--accent);color:#FFFFFF;text-decoration:none;font-weight:600;font-size:.9375rem}
+.btn:hover{background:var(--accent-dark);color:#FFFFFF}
+.btn.ghost{background:none;border:1px solid var(--line);color:var(--ink);font-weight:500}
+.btn.ghost:hover{border-color:var(--accent);color:var(--accent)}
 .chips{display:flex;flex-wrap:wrap;gap:.5rem;margin:0;padding:0;list-style:none}
-.chips li{font-size:.95rem;padding:.25rem .875rem;border:1px solid var(--chip);border-radius:999px}
-.news{display:grid;grid-template-columns:5.5rem 1fr;gap:.5rem 1rem;margin:0;font-size:1rem}
-.news dt{color:var(--muted)}
-.news dd{margin:0}
-.entries{display:flex;flex-direction:column;gap:1rem;font-size:1rem}
-.entries p{max-width:40em}
+.chips li{padding:.375rem .875rem;background:var(--chip);border-radius:1rem;font-size:.875rem;color:#2A3340}
+.news{display:flex;flex-direction:column;gap:.875rem;margin:0}
+.news div{display:flex;flex-wrap:wrap;gap:.25rem 1.25rem}
+.news dt{flex:0 0 6rem;font-size:.875rem;font-weight:600;color:var(--muted)}
+.news dd{flex:1 1 18rem;min-width:0;margin:0}
 
-footer{border-top:1px solid var(--rule)}
-footer p{max-width:none;padding-block:1.5rem;font-size:.875rem;color:var(--muted);text-align:center}
+/* CV viewer */
+.viewer{padding:0;overflow:hidden}
+.viewer-bar{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;justify-content:space-between;padding:.625rem 1rem;border-bottom:1px solid var(--rule);background:#FAFBFC}
+.viewer-bar span{font-size:.875rem;font-weight:600;color:var(--body)}
+.viewer-bar div{display:flex;flex-wrap:wrap;gap:.5rem}
+.pages{height:40rem;overflow-y:auto;background:#E9ECF0;padding:1.5rem;display:flex;flex-direction:column;align-items:center;gap:1.25rem}
+.pages img{display:block;width:100%;max-width:47.5rem;height:auto;background:var(--paper);box-shadow:0 1px 4px rgba(20,30,45,.18)}
+.block{display:flex;flex-direction:column;gap:1rem}
+.block + .block{margin-top:1.75rem}
+.row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:.125rem 1rem}
+.row > div{flex:1 1 26rem;min-width:0}
+.row .when{color:var(--muted);font-size:.9375rem}
+.row .t{font-weight:600}
+.row .s{color:var(--body)}
+.row .n{color:var(--muted);font-size:.9375rem}
+.twocol{display:flex;flex-wrap:wrap;gap:1.75rem}
+.twocol > div{flex:1 1 18rem;min-width:0}
+
+/* publications */
+.pub-title{margin:0 0 .5rem;font:600 1.25rem/1.35 var(--serif)}
+.pub + .pub{margin-top:1.75rem;padding-top:1.75rem;border-top:1px solid var(--rule)}
+.pub p{margin:0 0 .375rem}
+.pub .venue{color:var(--muted);font-size:.9375rem}
+
+/* projects */
+.projects{display:flex;flex-wrap:wrap;gap:1.25rem}
+.projects article{flex:1 1 27.5rem;min-width:0;padding:1.75rem}
+.projects .chips li{font-size:.8125rem;padding:.25rem .75rem}
+
+/* contact */
+.contact{display:flex;flex-wrap:wrap;gap:2rem}
+.contact > div{flex:1 1 18rem;min-width:0}
+.contact ul{margin:.5rem 0 0;padding:0;list-style:none;display:flex;flex-direction:column;gap:.375rem}
+.big{font-size:1.0625rem;font-weight:600}
+
+footer{border-top:1px solid var(--rule);background:var(--paper)}
+footer .wrap{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;justify-content:space-between;padding-block:1.25rem;font-size:.875rem;color:var(--muted)}
 
 @media (max-width:30rem){
-  .col{padding-inline:1.25rem}
-  .who h1{font-size:1.75rem}
-  .news{grid-template-columns:1fr;gap:0}
-  .news dd{margin-bottom:.75rem}
+  .wrap{padding-inline:1rem}
+  .card{padding:1.5rem}
+  .who h1{font-size:1.875rem}
+  .banner{height:8rem}
+  .pages{height:28rem;padding:1rem}
+}
+@media print{
+  .banner,.tabs,.pills,.viewer,footer{display:none}
+  .tab[hidden]{display:flex}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<header class="profile">
-  <div class="col">
-    <div class="avatar" role="img" aria-label="Nirvar Roy Vaskar">NRV</div>
-    <div class="who">
-      <h1>Nirvar Roy Vaskar</h1>
-      <p>Machine Learning Researcher · Dhaka, Bangladesh</p>
+<header class="top">
+  <div class="banner"></div>
+  <div class="wrap">
+    <img class="avatar" src="assets/avatar.jpg" width="140" height="140" alt="Portrait of Nirvar Roy Vaskar">
+    <div class="idrow">
+      <div class="who">
+        <h1>Nirvar Roy Vaskar</h1>
+        <p class="role">MSc in Data Science, Universiti Malaya · Prospective PhD student</p>
+        <p class="tags">Computer vision · Robustness and shortcut learning · Dhaka, Bangladesh</p>
+      </div>
+      <nav aria-label="Profiles"><ul class="pills">
+        <li><a href="https://scholar.google.com/citations?user=twgjr94AAAAJ&amp;hl=en"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 9l10-5 10 5-10 5-10-5z"/><path d="M6 11v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5"/></svg>Google Scholar</a></li>
+        <li><a href="https://www.linkedin.com/in/nirvar/"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 012-2h4a2 2 0 012 2v2"/></svg>LinkedIn</a></li>
+        <li><a href="https://github.com/nirvarr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 7l-5 5 5 5"/><path d="M16 7l5 5-5 5"/></svg>GitHub</a></li>
+        <li><a href="mailto:23112113@siswa.um.edu.my"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>Email</a></li>
+      </ul></nav>
     </div>
-    <ul class="links">
-      <li><a href="mailto:nirvarr@gmail.com">nirvarr@gmail.com</a></li>
-      <li><a href="https://github.com/nirvarr">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/nirvar">LinkedIn</a></li>
-    </ul>
+    <nav aria-label="Site">
+      <ul class="tabs">
+        <li><a href="#home" aria-current="page">Home</a></li>
+        <li><a href="#cv">CV</a></li>
+        <li><a href="#publications">Publications</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
   </div>
-  <nav class="site-nav" aria-label="Site">
-    <ul>
-      <li><a href="#about" aria-current="page">About</a></li>
-      <li><a href="#publications">Publications</a></li>
-      <li><a href="#projects">Projects</a></li>
-    </ul>
-  </nav>
 </header>
 
-<main id="main" class="col">
+<main id="main" class="wrap">
 
-  <section id="about" aria-labelledby="about-h">
-    <h2 id="about-h">About</h2>
-    <p>Hello! I'm Nirvar, a machine learning researcher from Dhaka, Bangladesh. I recently completed my Master of Data Science at Universiti Malaya, graduating with Distinction (CGPA 3.90/4.00) under the supervision of Assoc. Prof. Dr. Norjihan Binti Abdul Ghani.</p>
-    <p>My master's thesis examined background bias in CNN-based ripeness classification of golden berries: whether a model judges the fruit, or the scene around it. Before that, I studied Computer Science at American International University-Bangladesh, labelled and segmented images for a content-moderation classifier at Netstar (SG), and co-authored a study of LLM code generation published at NSysS 2024.</p>
-    <p>I am now applying for PhD positions in computer vision, model robustness and evaluation methodology, and I would be glad to hear from groups working in these areas.</p>
-    <p class="signoff">Nirvar</p>
-  </section>
-
-  <section aria-labelledby="interests-h">
-    <h2 id="interests-h">Research interests</h2>
-    <ul class="chips">
-      <li>Computer vision</li>
-      <li>Shortcut learning</li>
-      <li>Model robustness</li>
-      <li>Evaluation methodology</li>
-    </ul>
-  </section>
-
-  <section aria-labelledby="news-h">
-    <h2 id="news-h">News</h2>
-    <dl class="news">
-      <dt>Aug 2026</dt><dd>Completed the Master of Data Science at Universiti Malaya with Distinction.</dd>
-      <dt>Dec 2024</dt><dd>Paper on ChatGPT code generation published at NSysS 2024, Khulna.</dd>
-    </dl>
-  </section>
-
-  <section id="publications" aria-labelledby="pubs-h">
-    <h2 id="pubs-h">Publications</h2>
-    <div class="entries">
-      <p>U. A. Shuvo, S. A. Dip, <strong>N. R. Vaskar</strong> and A. B. M. A. Al Islam. Assessing ChatGPT's code generation capabilities with short vs long context programming problems. <em>11th International Conference on Networking, Systems and Security (NSysS)</em>, 2024.</p>
-      <p><strong>N. R. Vaskar</strong> and N. A. Ghani. Assessing background bias in golden berry (<em>Physalis peruviana</em>) ripeness classification using convolutional neural networks. <em>In preparation.</em></p>
+  <section id="home" class="tab" aria-labelledby="about-h">
+    <div class="split">
+      <div class="main">
+        <div class="card">
+          <h2 id="about-h">About</h2>
+          <p>I am a data scientist working on computer vision and deep learning. I recently completed a Master of Data Science at Universiti Malaya (Faculty of Computer Science and Information Technology), graduating with Distinction (CGPA 3.90/4.00) under the supervision of Assoc. Prof. Dr. Norjihan Binti Abdul Ghani.</p>
+          <p>My master's thesis asked whether convolutional neural networks that classify golden berry (<em>Physalis peruviana</em>) ripeness learn the fruit or the photographic setting. On ordinary images, a shape-blind colour-histogram baseline came within 3 points of the best CNN. A background-randomisation control I designed separated them: the baseline fell to 82.5% while pretrained CNNs held 94.2%, widening ResNet50's margin from 2.9 to 11.7 points. Headline accuracy on mixed-source images, in other words, can overstate what a model has actually learned.</p>
+          <p>Before my master's, I earned a BSc in Computer Science from American International University-Bangladesh (AIUB). I am now looking for a fully funded PhD position on robustness and shortcut learning in visual classification.</p>
+        </div>
+        <div class="card">
+          <h2>Research interests</h2>
+          <ul class="chips">
+            <li>Shortcut learning</li>
+            <li>Robustness in visual classification</li>
+            <li>Spurious context and dataset bias</li>
+            <li>Agricultural and food-quality imaging</li>
+            <li>Evaluation under distribution shift</li>
+          </ul>
+        </div>
+        <div class="card">
+          <h2>News</h2>
+          <dl class="news">
+            <div><dt>Aug 2026</dt><dd>MSc in Data Science approved by the Universiti Malaya Senate, Pass with Distinction.</dd></div>
+            <div><dt>2026</dt><dd>First-author manuscript on background bias in golden berry ripeness classification in preparation.</dd></div>
+            <div><dt>Dec 2024</dt><dd>Co-authored paper on ChatGPT code generation published at NSysS 2024, Khulna.</dd></div>
+          </dl>
+        </div>
+      </div>
+      <aside class="card glance" aria-label="At a glance">
+        <h2>At a glance</h2>
+        <div><p class="label">Status</p><p>Seeking a fully funded PhD position</p></div>
+        <div><p class="label">Education</p><p>MSc Data Science, Universiti Malaya (Distinction)</p><p>BSc Computer Science, AIUB</p></div>
+        <div><p class="label">English</p><p>IELTS Academic 7.5</p></div>
+        <div><p class="label">Based in</p><p>Dhaka, Bangladesh</p></div>
+        <a class="btn" href="#cv">View CV</a>
+      </aside>
     </div>
   </section>
 
-  <section id="projects" aria-labelledby="projects-h">
-    <h2 id="projects-h">Projects</h2>
-    <div class="entries">
-      <p><strong>Golden berry ripeness classification</strong> (2025 to 2026). ResNet50, MobileNetV2 and a custom CNN on 1,124 images, with a background-randomisation control. <a href="https://github.com/nirvarr/golden-berry-ripeness-cnn">Code</a></p>
-      <p><strong>Computer vision from scratch</strong> (2026). Twelve lessons implementing classical computer vision in NumPy and OpenCV. <a href="https://github.com/nirvarr/cv-from-scratch">Code</a></p>
-      <p><strong>Fraud detection pipeline on AWS</strong> (2025). Airflow, S3, Glue, Athena and SNS on the NeurIPS 2022 Bank Account Fraud dataset.</p>
+  <section id="cv" class="tab" aria-labelledby="cv-h">
+    <h2 id="cv-h" class="page-title">CV</h2>
+    <div class="card viewer">
+      <div class="viewer-bar">
+        <span>Nirvar_Roy_Vaskar_CV.pdf · 2 pages · updated November 2026</span>
+        <div>
+          <a class="btn ghost" href="Nirvar_Roy_Vaskar_CV.pdf" target="_blank" rel="noopener">Open in new tab</a>
+          <a class="btn" href="Nirvar_Roy_Vaskar_CV.pdf" download>Download PDF</a>
+        </div>
+      </div>
+      <div class="pages">
+        <img src="assets/cv-page-1.jpg" width="910" height="1287" loading="lazy" alt="CV page 1: research interests, education, research experience and publications">
+        <img src="assets/cv-page-2.jpg" width="910" height="1287" loading="lazy" alt="CV page 2: projects, professional experience, skills, honours, service and languages">
+      </div>
+    </div>
+
+    <div class="card">
+      <h3 class="serif">CV at a glance</h3>
+      <div class="block">
+        <p class="label accent">Education</p>
+        <div class="row"><div><div class="t">Master of Data Science, Pass with Distinction</div><div class="s">Universiti Malaya, Faculty of Computer Science and Information Technology · CGPA 3.90/4.00</div><div class="n">Thesis: “Assessing Background Bias in Golden Berry (<em>Physalis peruviana</em>) Ripeness Classification Using Convolutional Neural Networks.” Supervisor: Assoc. Prof. Dr. Norjihan Binti Abdul Ghani</div></div><div class="when">2025 to 2026</div></div>
+        <div class="row"><div><div class="t">BSc in Computer Science</div><div class="s">American International University-Bangladesh (AIUB) · CGPA 3.51/4.00</div><div class="n">Thesis: “Enhanced Traffic Surveillance and Monitoring System using Deep Learning.” Advisor: AZM Ehtesham Chowdhury</div></div><div class="when">2018</div></div>
+      </div>
+      <div class="block">
+        <p class="label accent">Research experience</p>
+        <div class="row"><div><span class="t">Graduate Researcher, Universiti Malaya.</span> Background bias in CNN-based golden berry ripeness classification.</div><div class="when">2025 to 2026</div></div>
+        <div class="row"><div><span class="t">Research Contributor.</span> Evaluation of LLM code generation under short and long context (NSysS 2024).</div><div class="when">2024</div></div>
+        <div class="row"><div><span class="t">Undergraduate Researcher, AIUB.</span> Deep learning for vehicle detection and speed estimation in Dhaka traffic footage.</div><div class="when">2018</div></div>
+      </div>
+      <div class="block">
+        <p class="label accent">Professional experience</p>
+        <div class="row"><div><div class="t">Content Moderator, Netstar (SG) Pte. Ltd.</div><div class="s">imo messaging app, Dhaka. Labelled and segmented images used to train the content-moderation classifier and research models.</div></div><div class="when">2020 to 2021</div></div>
+        <div class="row"><div><div class="t">Web Development Intern, Error Lab</div><div class="s">Dhaka. Rewrote the portfolio-site backend in Django and fixed a bug that reduced site latency.</div></div><div class="when">2019 to 2020</div></div>
+      </div>
+      <div class="block">
+        <p class="label accent">Honours and scholarships</p>
+        <div class="row"><div>Pass with Distinction, Master of Data Science, Universiti Malaya</div><div class="when">2026</div></div>
+        <div class="row"><div>Government of Bangladesh Board Scholarship; ranked 4th nationally (SSC) and 135th (HSC)</div><div class="when">2012, 2014</div></div>
+      </div>
+      <div class="block twocol">
+        <div><p class="label accent">Technical skills</p><p class="s">Python, C/C++, SQL, R · PyTorch, scikit-learn, Hugging Face Transformers, OpenCV · AWS (SageMaker, S3, Glue, Athena, MWAA/Airflow, SNS), Docker, Git, LaTeX</p></div>
+        <div><p class="label accent">Languages and service</p><p class="s">Bengali (native); English, IELTS Academic 7.5. Volunteer instructor in foundational computer education for children in underserved communities, Dhaka.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="publications" class="tab" aria-labelledby="pubs-h">
+    <h2 id="pubs-h" class="page-title">Publications</h2>
+    <div class="card">
+      <div class="pub">
+        <p class="label accent">Manuscript in preparation</p>
+        <h3 class="pub-title">Assessing Background Bias in Golden Berry (<em>Physalis peruviana</em>) Ripeness Classification Using Convolutional Neural Networks</h3>
+        <p><strong>Nirvar Roy Vaskar</strong>, Norjihan Binti Abdul Ghani</p>
+        <p class="venue">Based on my MSc thesis, Universiti Malaya, 2026. Tests whether CNN ripeness classifiers rely on the fruit or on background cues in the image.</p>
+      </div>
+      <div class="pub">
+        <p class="label accent">Peer-reviewed conference paper</p>
+        <h3 class="pub-title">Assessing ChatGPT’s Code Generation Capabilities with Short vs Long Context Programming Problems</h3>
+        <p>U. A. Shuvo, S. A. Dip, <strong>N. R. Vaskar</strong>, A. B. M. A. Al Islam</p>
+        <p class="venue"><em>Proceedings of the 11th International Conference on Networking, Systems and Security (NSysS 2024)</em>, Khulna, Bangladesh, December 2024</p>
+        <p><a class="btn ghost" href="https://scholar.google.com/citations?user=twgjr94AAAAJ&amp;hl=en">View on Google Scholar</a></p>
+      </div>
+    </div>
+  </section>
+
+  <section id="research" class="tab" aria-labelledby="research-h">
+    <h2 id="research-h" class="page-title">Research and projects</h2>
+    <div class="projects">
+      <article class="card">
+        <p class="label accent">MSc thesis · Universiti Malaya</p>
+        <h3 class="serif">Background bias in golden berry ripeness classification</h3>
+        <p>Built a 1,124-image ripe/unripe dataset, compared ResNet50, MobileNetV2 and a custom CNN against a colour-histogram baseline, and designed a background-randomisation control that showed when the CNNs were really using fruit shape.</p>
+        <p><a href="https://github.com/nirvarr/golden-berry-ripeness-cnn">Code on GitHub</a></p>
+      </article>
+      <article class="card">
+        <p class="label accent">Open-source course</p>
+        <h3 class="serif">Computer vision from scratch</h3>
+        <p>A 12-lesson computer vision course with from-scratch NumPy and OpenCV implementations, published as an installable offline web app on GitHub Pages.</p>
+        <p><a href="https://github.com/nirvarr/cv-from-scratch">github.com/nirvarr/cv-from-scratch</a></p>
+      </article>
+      <article class="card">
+        <p class="label accent">MSc project · Applied machine learning</p>
+        <h3 class="serif">Bank account fraud detection pipeline</h3>
+        <p>Orchestrated ingestion, feature processing, training and scoring on the NeurIPS 2022 Bank Account Fraud dataset with Apache Airflow on Amazon MWAA, using S3, Glue, Athena and SNS.</p>
+        <ul class="chips"><li>Tabular ML</li><li>AWS</li><li>Airflow</li></ul>
+      </article>
+      <article class="card">
+        <p class="label accent">MSc project · NLP</p>
+        <h3 class="serif">Fake news detection with DistilBERT</h3>
+        <p>Fine-tuned DistilBERT for binary news veracity classification, running training and inference as managed Amazon SageMaker jobs.</p>
+        <ul class="chips"><li>Transformers</li><li>SageMaker</li></ul>
+      </article>
+    </div>
+  </section>
+
+  <section id="contact" class="tab" aria-labelledby="contact-h">
+    <h2 id="contact-h" class="page-title">Contact</h2>
+    <div class="card contact">
+      <div>
+        <p>I welcome enquiries about PhD positions and research collaborations in computer vision and machine learning.</p>
+        <p class="label">Email</p>
+        <p><a class="big" href="mailto:23112113@siswa.um.edu.my">23112113@siswa.um.edu.my</a></p>
+        <p class="label">Location</p>
+        <p>Dhaka, Bangladesh (UTC+6)</p>
+      </div>
+      <div>
+        <p class="label">Profiles</p>
+        <ul>
+          <li><a href="https://scholar.google.com/citations?user=twgjr94AAAAJ&amp;hl=en">Google Scholar</a></li>
+          <li><a href="https://www.linkedin.com/in/nirvar/">LinkedIn</a></li>
+          <li><a href="https://github.com/nirvarr">GitHub (nirvarr)</a></li>
+        </ul>
+      </div>
     </div>
   </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Nirvar Roy Vaskar</p>
+  <div class="wrap">
+    <span>© 2026 Nirvar Roy Vaskar</span>
+    <span>Last updated November 2026</span>
+  </div>
 </footer>
+
+<script>
+(function () {
+  var ids = ["home", "cv", "publications", "research", "contact"];
+  var tabs = ids.map(function (id) { return document.getElementById(id); });
+  var links = Array.prototype.slice.call(document.querySelectorAll(".tabs a"));
+  document.documentElement.classList.add("js");
+  function show() {
+    var id = (location.hash || "#home").slice(1);
+    if (ids.indexOf(id) === -1) { id = "home"; }
+    tabs.forEach(function (el) { el.hidden = el.id !== id; });
+    links.forEach(function (a) {
+      if (a.getAttribute("href") === "#" + id) { a.setAttribute("aria-current", "page"); }
+      else { a.removeAttribute("aria-current"); }
+    });
+  }
+  window.addEventListener("hashchange", function () { show(); window.scrollTo(0, 0); });
+  show();
+  if (location.hash) { window.addEventListener("load", function () { window.scrollTo(0, 0); }); }
+}());
+</script>
 </body>
 </html>
