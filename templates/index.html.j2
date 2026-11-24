@@ -3,14 +3,15 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Nirvar Roy Vaskar · Machine learning researcher</title>
-<meta name="description" content="Nirvar Roy Vaskar: machine learning researcher working on computer vision, model robustness and evaluation methodology. Master of Data Science, Universiti Malaya. Applying for PhD positions.">
-<meta property="og:title" content="Nirvar Roy Vaskar">
-<meta property="og:description" content="Machine learning researcher. Computer vision, model robustness and evaluation methodology.">
+{# Generated from data/*.yml by scripts/build.py. Edit the data, not the output. #}
+<title>{{ p.page_title }}</title>
+<meta name="description" content="{{ p.meta_description }}">
+<meta property="og:title" content="{{ p.name }}">
+<meta property="og:description" content="{{ p.share_description }}">
 <meta property="og:type" content="website">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Source+Sans+3:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&amp;family=Source+Sans+3:ital,wght@0,400;0,600;1,400&amp;display=swap" rel="stylesheet">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='16' fill='%231D4E89'/%3E%3C/svg%3E">
 <style>
 :root{
@@ -86,17 +87,17 @@ footer p{max-width:none;padding-block:1.5rem;font-size:.875rem;color:var(--muted
 
 <header class="profile">
   <div class="col">
-    <img class="avatar" src="assets/avatar.jpg" width="152" height="152" alt="Portrait of Nirvar Roy Vaskar">
+    <img class="avatar" src="{{ p.photo | trim('/') }}" width="152" height="152" alt="Portrait of {{ p.name }}">
     <div class="who">
-      <h1>Nirvar Roy Vaskar</h1>
-      <p>Machine Learning Researcher · Dhaka, Bangladesh</p>
+      <h1>{{ p.name }}</h1>
+      <p>{{ p.headline }} · {{ p.location }}</p>
     </div>
     <ul class="links">
-      <li><a href="mailto:nirvarr@gmail.com">nirvarr@gmail.com</a></li>
-      <li><a href="https://scholar.google.com/citations?user=twgjr94AAAAJ&amp;hl=en">Google Scholar</a></li>
-      <li><a href="https://github.com/nirvarr">GitHub</a></li>
-      <li><a href="https://www.linkedin.com/in/nirvar/">LinkedIn</a></li>
-      <li><a href="Nirvar_Roy_Vaskar_CV.pdf">CV (PDF)</a></li>
+      <li><a href="mailto:{{ p.email_site }}">{{ p.email_site }}</a></li>
+      <li><a href="{{ p.scholar }}">Google Scholar</a></li>
+      <li><a href="{{ p.github }}">GitHub</a></li>
+      <li><a href="{{ p.linkedin }}">LinkedIn</a></li>
+      <li><a href="{{ cv_file }}">CV (PDF)</a></li>
     </ul>
   </div>
   <nav class="site-nav" aria-label="Site">
@@ -113,57 +114,60 @@ footer p{max-width:none;padding-block:1.5rem;font-size:.875rem;color:var(--muted
 
   <section id="about" aria-labelledby="about-h">
     <h2 id="about-h">About</h2>
-    <p>Hello! I'm Nirvar, a machine learning researcher from Dhaka, Bangladesh. I recently completed my Master of Data Science at Universiti Malaya, graduating with Distinction (CGPA 3.90/4.00) under the supervision of Assoc. Prof. Dr. Norjihan Binti Abdul Ghani.</p>
-    <p>My master's thesis examined background bias in CNN-based ripeness classification of golden berries: whether a model judges the fruit, or the scene around it. Before that, I studied Computer Science at American International University-Bangladesh, labelled and segmented images for a content-moderation classifier at Netstar (SG), and co-authored a study of LLM code generation published at NSysS 2024.</p>
-    <p>I am now applying for PhD positions in computer vision, model robustness and evaluation methodology, and I would be glad to hear from groups working in these areas.</p>
-    <p class="signoff">Nirvar</p>
+{% for para in p.about %}
+    <p>{{ para | md }}</p>
+{% endfor %}
+    <p class="signoff">{{ p.first_name }}</p>
   </section>
 
   <section aria-labelledby="interests-h">
     <h2 id="interests-h">Research interests</h2>
     <ul class="chips">
-      <li>Computer vision</li>
-      <li>Shortcut learning</li>
-      <li>Model robustness</li>
-      <li>Evaluation methodology</li>
+{% for i in p.interests %}
+      <li>{{ i }}</li>
+{% endfor %}
     </ul>
   </section>
+{% if news %}
 
   <section aria-labelledby="news-h">
     <h2 id="news-h">News</h2>
     <dl class="news">
-      <dt>Aug 2026</dt><dd>Completed the Master of Data Science at Universiti Malaya with Distinction.</dd>
-      <dt>Dec 2024</dt><dd>Paper on ChatGPT code generation published at NSysS 2024, Khulna.</dd>
+{% for n in news %}
+      <dt>{{ n.date }}</dt><dd>{{ n.text | md }}</dd>
+{% endfor %}
     </dl>
   </section>
+{% endif %}
 
   <section id="publications" aria-labelledby="pubs-h">
     <h2 id="pubs-h">Publications</h2>
     <div class="entries">
-      <p>U. A. Shuvo, S. A. Dip, <strong>N. R. Vaskar</strong> and A. B. M. A. Al Islam. Assessing ChatGPT's code generation capabilities with short vs long context programming problems. <em>11th International Conference on Networking, Systems and Security (NSysS)</em>, 2024. <a href="https://scholar.google.com/citations?user=twgjr94AAAAJ&amp;hl=en">Google Scholar</a></p>
-      <p><strong>N. R. Vaskar</strong> and N. A. Ghani. Assessing background bias in golden berry (<em>Physalis peruviana</em>) ripeness classification using convolutional neural networks. <em>In preparation.</em></p>
+{% for pub in pubs %}
+      <p>{{ pub.authors_marked | md }}. {{ pub.title | md }}. {{ pub.status_text | md }}{% for l in pub.links %} <a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+{% endfor %}
     </div>
   </section>
 
   <section id="projects" aria-labelledby="projects-h">
     <h2 id="projects-h">Projects</h2>
     <div class="entries">
-      <p><strong>Golden berry ripeness classification</strong> (2025 to 2026). ResNet50, MobileNetV2 and a custom CNN on 1,124 images, with a background-randomisation control. <a href="https://github.com/nirvarr/golden-berry-ripeness-cnn">Code</a></p>
-      <p><strong>Computer vision from scratch</strong> (2026). Twelve lessons implementing classical computer vision in NumPy and OpenCV. <a href="https://github.com/nirvarr/cv-from-scratch">Code</a></p>
-      <p><strong>Fraud detection pipeline on AWS</strong> (2025). Airflow, S3, Glue, Athena and SNS on the NeurIPS 2022 Bank Account Fraud dataset.</p>
+{% for pr in site_projects %}
+      <p><strong>{{ pr.title }}</strong> ({{ pr.years }}). {{ pr.summary | md }}{% for l in pr.links %} <a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</p>
+{% endfor %}
     </div>
   </section>
 
   <section id="cv" aria-labelledby="cv-h">
     <h2 id="cv-h">CV</h2>
     <p>My two-page academic CV covers education, research experience, publications, projects and skills.</p>
-    <p class="cv-links"><a class="btn" href="Nirvar_Roy_Vaskar_CV.pdf" download>Download CV (PDF)</a> <a href="Nirvar_Roy_Vaskar_CV.pdf" target="_blank" rel="noopener">Open in a new tab</a></p>
+    <p class="cv-links"><a class="btn" href="{{ cv_file }}" download>Download CV (PDF)</a> <a href="{{ cv_file }}" target="_blank" rel="noopener">Open in a new tab</a></p>
   </section>
 
 </main>
 
 <footer>
-  <p>© 2026 Nirvar Roy Vaskar</p>
+  <p>© {{ year }} {{ p.name }}</p>
 </footer>
 </body>
 </html>

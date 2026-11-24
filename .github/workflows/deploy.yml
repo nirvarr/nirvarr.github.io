@@ -1,4 +1,8 @@
-name: Check and deploy site
+name: Build website and CV, then deploy
+
+# Runs on every save from the dashboard (each save is a push to main).
+# Builds _site/index.html and the CV PDF from data/*.yml, checks them, and publishes.
+# If a check fails, the live site keeps its last good version and GitHub emails you.
 
 on:
   push:
@@ -12,37 +16,53 @@ permissions:
   id-token: write
 
 concurrency:
-  group: pages
-  cancel-in-progress: false
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
-  check:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Generate website and CV source from data files
+        run: |
+          pip install --quiet pyyaml jinja2
+          python scripts/build.py
       - uses: actions/setup-node@v4
         with:
           node-version: 20
       - name: Validate HTML
-        run: npx --yes html-validate@9 index.html
+        run: npx --yes html-validate@9 _site/index.html
+      - name: Compile CV
+        uses: xu-cheng/latex-action@v3
+        with:
+          root_file: Nirvar_Roy_Vaskar_CV.tex
+          working_directory: build
+      - name: CV must be two pages
+        run: |
+          grep -o "Output written on .*([0-9]* pages" build/Nirvar_Roy_Vaskar_CV.log
+          grep -q "(2 pages" build/Nirvar_Roy_Vaskar_CV.log || { echo "CV is not 2 pages. Shorten some text in the dashboard."; exit 1; }
+          cp build/Nirvar_Roy_Vaskar_CV.pdf _site/
       - name: Check links
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --no-progress --exclude linkedin.com --exclude scholar.google.com --exclude fonts.googleapis.com --exclude fonts.gstatic.com index.html
+          args: --no-progress --exclude linkedin.com --exclude scholar.google.com --exclude fonts.googleapis.com --exclude fonts.gstatic.com _site/index.html
           fail: true
+      - uses: actions/upload-pages-artifact@v3
+        if: github.event_name != 'pull_request'
+        with:
+          path: _site
 
   deploy:
-    needs: check
+    needs: build
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
-        with:
-          path: .
       - id: deployment
         uses: actions/deploy-pages@v4

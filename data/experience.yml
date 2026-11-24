@@ -1,0 +1,32 @@
+- role: Graduate Researcher, Universiti Malaya
+  type: Research
+  years: 2025 to 2026
+  place: Background bias in CNN-based golden berry ripeness classification
+  bullets:
+    - Built a 1,124-image ripe/unripe golden berry dataset from web sources and original photography; deduplicated it with perceptual hashing, hand-labelled it, split it 70:15:15 and corrected class imbalance.
+    - Fine-tuned ResNet50 (98.8% accuracy) and MobileNetV2 (97.7%) and trained a custom CNN from scratch (97.7%); showed that a shape-blind colour-histogram baseline reached 95.9%, under 3 points behind the best CNN.
+    - "Designed a background-randomisation control (segmented fruit composited onto label-independent backgrounds): the baseline fell to 82.5% while pretrained CNNs held 94.2%, widening ResNet50's margin over the baseline from 2.9 to 11.7 points (p < 0.01)."
+- role: Research Contributor, LLM code generation evaluation
+  type: Research
+  years: "2024"
+  place: Collaborative study published at NSysS 2024
+  bullets:
+    - "Studied how context length affects the correctness and efficiency of ChatGPT-generated code: built prompt sets with controlled difficulty, categorised errors systematically and contributed to the efficiency analysis."
+- role: Undergraduate Researcher, AIUB
+  type: Research
+  years: "2018"
+  place: Deep learning for traffic surveillance
+  bullets:
+    - Developed a deep learning model for vehicle detection and speed estimation in dense urban traffic footage from Dhaka.
+- role: Content Moderator
+  type: Professional
+  years: 2020 to 2021
+  place: Netstar (SG) Pte. Ltd., imo messaging app, Dhaka
+  bullets:
+    - Labelled and segmented images used to train imo's content-moderation classifier and the research team's models; reviewed disputed content flagged by the production system.
+- role: Web Development Intern
+  type: Professional
+  years: 2019 to 2020
+  place: Error Lab, Dhaka
+  bullets:
+    - Rewrote the company's portfolio-site backend in Django and fixed a bug that reduced site latency.

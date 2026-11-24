@@ -1,0 +1,36 @@
+- title: Golden berry ripeness classification
+  years: 2025 to 2026
+  show_on_site: true
+  show_on_cv: false
+  summary: ResNet50, MobileNetV2 and a custom CNN on 1,124 images, with a background-randomisation control.
+  cv_context: ""
+  cv_description: ""
+  links:
+    - label: Code
+      url: https://github.com/nirvarr/golden-berry-ripeness-cnn
+- title: End-to-end fraud detection pipeline on AWS
+  years: "2025"
+  show_on_site: true
+  show_on_cv: true
+  summary: Airflow, S3, Glue, Athena and SNS on the NeurIPS 2022 Bank Account Fraud dataset.
+  cv_context: Universiti Malaya, Applied Machine Learning
+  cv_description: Orchestrated ingestion, feature processing, training and scoring on the NeurIPS 2022 Bank Account Fraud dataset with Apache Airflow on Amazon MWAA, using S3, Glue, Athena and SNS.
+  links: []
+- title: Fake news detection with DistilBERT
+  years: "2025"
+  show_on_site: false
+  show_on_cv: true
+  summary: Fine-tuned DistilBERT for binary news veracity classification on AWS SageMaker.
+  cv_context: Universiti Malaya, Natural Language Processing
+  cv_description: Fine-tuned DistilBERT for binary news veracity classification, running training and inference as managed AWS SageMaker jobs.
+  links: []
+- title: Computer Vision from Scratch
+  years: "2026"
+  show_on_site: true
+  show_on_cv: true
+  summary: Twelve lessons implementing classical computer vision in NumPy and OpenCV.
+  cv_context: Open source, [github.com/nirvarr/cv-from-scratch](https://github.com/nirvarr/cv-from-scratch)
+  cv_description: A 12-lesson course implementing classical computer vision (filtering, edge detection, segmentation) from first principles in NumPy and OpenCV, published as an installable offline web app.
+  links:
+    - label: Code
+      url: https://github.com/nirvarr/cv-from-scratch

@@ -1,0 +1,208 @@
+# Dashboard configuration for Pages CMS (https://app.pagescms.org).
+# Every Save commits to GitHub; the deploy workflow then rebuilds the website and the CV.
+
+media: assets
+
+content:
+  - name: projects
+    label: Projects
+    type: file
+    path: data/projects.yml
+    format: yaml
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title} ({years})"
+    fields:
+      - name: title
+        label: Project title
+        type: string
+        required: true
+      - name: years
+        label: Years
+        type: string
+        description: For example 2026 or 2025 to 2026
+        required: true
+      - name: show_on_site
+        label: Show on website
+        type: boolean
+      - name: show_on_cv
+        label: Show on CV
+        type: boolean
+        description: The CV shows at most 4 projects, in the order of this list.
+      - name: summary
+        label: Short description (website)
+        type: text
+        description: One sentence. You can use *italic*, **bold** and [link text](https://...).
+        required: true
+      - name: cv_context
+        label: CV subtitle
+        type: string
+        description: Optional, e.g. "Universiti Malaya, Applied Machine Learning"
+      - name: cv_description
+        label: Longer description (CV)
+        type: text
+        description: Optional. If empty, the short description is used.
+      - name: links
+        label: Links (code, live demo, paper)
+        type: object
+        list: true
+        fields:
+          - name: label
+            label: Button text
+            type: string
+            description: For example Code, Live demo, Paper
+          - name: url
+            label: Web address
+            type: string
+
+  - name: publications
+    label: Publications
+    type: file
+    path: data/publications.yml
+    format: yaml
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{title}"
+    fields:
+      - name: title
+        label: Title
+        type: string
+        required: true
+      - name: authors
+        label: Authors
+        type: string
+        description: Exact author order, e.g. "N. R. Vaskar and N. Abdul Ghani". Your name is bolded automatically.
+        required: true
+      - name: status
+        label: Status
+        type: select
+        options:
+          values: [Published, Accepted, Under review, In preparation]
+      - name: venue
+        label: Journal or conference
+        type: string
+      - name: details
+        label: Place and date
+        type: string
+        description: For example "Khulna, Bangladesh, December 2024"
+      - name: links
+        label: Links (DOI, PDF, Scholar)
+        type: object
+        list: true
+        fields:
+          - name: label
+            type: string
+          - name: url
+            type: string
+
+  - name: news
+    label: News
+    type: file
+    path: data/news.yml
+    format: yaml
+    list:
+      collapsible:
+        collapsed: false
+        summary: "{date}: {text}"
+    fields:
+      - name: date
+        label: Date
+        type: string
+        description: Month and year, e.g. "Jan 2027". Newest first; the site shows the top 6.
+      - name: text
+        label: News item
+        type: text
+
+  - name: experience
+    label: Research and work experience
+    type: file
+    path: data/experience.yml
+    format: yaml
+    list:
+      collapsible:
+        collapsed: true
+        summary: "{role} ({years})"
+    fields:
+      - name: role
+        label: Role
+        type: string
+        required: true
+      - name: type
+        label: CV section
+        type: select
+        options:
+          values: [Research, Professional]
+      - name: years
+        label: Years
+        type: string
+      - name: place
+        label: Organisation or topic (italic line on CV)
+        type: string
+      - name: bullets
+        label: Bullet points
+        type: text
+        list: true
+
+  - name: profile
+    label: Profile, education and skills
+    type: file
+    path: data/profile.yml
+    format: yaml
+    fields:
+      - { name: name, label: Full name, type: string }
+      - { name: short_name, label: Name as in author lists, type: string, description: "e.g. N. R. Vaskar (bolded in publications)" }
+      - { name: first_name, label: First name (sign-off), type: string }
+      - { name: headline, label: Headline, type: string }
+      - { name: location, label: Location, type: string }
+      - { name: photo, label: Profile photo, type: image }
+      - { name: email_site, label: Email on website, type: string }
+      - { name: email_cv, label: Email on CV, type: string }
+      - { name: scholar, label: Google Scholar link, type: string }
+      - { name: github, label: GitHub link, type: string }
+      - { name: linkedin, label: LinkedIn link, type: string }
+      - { name: page_title, label: Browser tab title, type: string }
+      - { name: meta_description, label: Search engine description, type: text }
+      - { name: share_description, label: Link-preview description, type: text }
+      - name: about
+        label: About paragraphs (website)
+        type: text
+        list: true
+      - name: interests
+        label: Research interests (website chips)
+        type: string
+        list: true
+      - { name: interests_cv, label: Research interests (CV paragraph), type: text }
+      - name: education
+        label: Education
+        type: object
+        list: true
+        fields:
+          - { name: degree, type: string }
+          - { name: years, type: string }
+          - { name: institution, type: string }
+          - { name: result, label: Grade line, type: string }
+          - { name: thesis, label: Thesis title, type: string }
+          - name: supervisor_role
+            type: select
+            options:
+              values: [Supervisor, Advisor]
+          - { name: supervisor, type: string }
+      - name: skills
+        label: Technical skills
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Category, type: string }
+          - { name: items, label: Skills, type: string }
+      - name: honours
+        label: Honours and scholarships
+        type: object
+        list: true
+        fields:
+          - { name: text, type: string }
+          - { name: years, type: string }
+      - { name: service, label: Service, type: text }
+      - { name: languages, label: Languages, type: text }
+      - { name: references, label: References line, type: string }

@@ -1,0 +1,54 @@
+name: Nirvar Roy Vaskar
+short_name: N. R. Vaskar
+first_name: Nirvar
+headline: Machine Learning Researcher
+location: Dhaka, Bangladesh
+photo: assets/avatar.jpg
+email_site: nirvarr@gmail.com
+email_cv: 23112113@siswa.um.edu.my
+scholar: https://scholar.google.com/citations?user=twgjr94AAAAJ&hl=en
+github: https://github.com/nirvarr
+linkedin: https://www.linkedin.com/in/nirvar/
+page_title: Nirvar Roy Vaskar · Machine learning researcher
+meta_description: "Nirvar Roy Vaskar: machine learning researcher working on computer vision, model robustness and evaluation methodology. Master of Data Science, Universiti Malaya. Applying for PhD positions."
+share_description: Machine learning researcher. Computer vision, model robustness and evaluation methodology.
+about:
+  - "Hello! I'm Nirvar, a machine learning researcher from Dhaka, Bangladesh. I recently completed my Master of Data Science at Universiti Malaya, graduating with Distinction (CGPA 3.90/4.00) under the supervision of Assoc. Prof. Dr. Norjihan Binti Abdul Ghani."
+  - "My master's thesis examined background bias in CNN-based ripeness classification of golden berries: whether a model judges the fruit, or the scene around it. Before that, I studied Computer Science at American International University-Bangladesh, labelled and segmented images for a content-moderation classifier at Netstar (SG), and co-authored a study of LLM code generation published at NSysS 2024."
+  - "I am now applying for PhD positions in computer vision, model robustness and evaluation methodology, and I would be glad to hear from groups working in these areas."
+interests:
+  - Computer vision
+  - Shortcut learning
+  - Model robustness
+  - Evaluation methodology
+interests_cv: "Robustness and shortcut learning in visual classification: identifying when models exploit spurious context rather than object properties, and designing controls that expose it. Applied interest in agricultural and food-quality imaging, and in evaluating models under distribution shift."
+education:
+  - degree: Master of Data Science
+    years: 2025 to 2026
+    institution: Universiti Malaya, Faculty of Computer Science and Information Technology, Kuala Lumpur, Malaysia
+    result: "CGPA 3.90/4.00, **Pass with Distinction**."
+    thesis: Assessing Background Bias in Golden Berry (Physalis peruviana) Ripeness Classification Using Convolutional Neural Networks
+    supervisor_role: Supervisor
+    supervisor: Assoc. Prof. Dr. Norjihan Binti Abdul Ghani
+  - degree: BSc in Computer Science
+    years: "2018"
+    institution: American International University-Bangladesh (AIUB), Dhaka, Bangladesh
+    result: CGPA 3.51/4.00.
+    thesis: Enhanced Traffic Surveillance and Monitoring System using Deep Learning
+    supervisor_role: Advisor
+    supervisor: AZM Ehtesham Chowdhury
+skills:
+  - label: Languages
+    items: Python, C/C++, SQL, R, Shell, LaTeX
+  - label: ML and vision
+    items: PyTorch, scikit-learn, Hugging Face Transformers, OpenCV, NumPy, Pandas
+  - label: Cloud and data
+    items: AWS (SageMaker, S3, Glue, Athena, MWAA/Airflow, SNS, IAM), Docker, Git, MySQL
+honours:
+  - text: Pass with Distinction, Master of Data Science, Universiti Malaya
+    years: "2026"
+  - text: Government of Bangladesh Board Scholarship; ranked 4th nationally (SSC) and 135th (HSC)
+    years: 2012, 2014
+service: Volunteer instructor, foundational computer education for children in underserved communities, Dhaka.
+languages: "Bengali (native). English: IELTS Academic, overall band 7.5."
+references: Available on request.

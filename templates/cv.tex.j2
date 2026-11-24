@@ -1,0 +1,134 @@
+((# Generated from data/*.yml by scripts/build.py. Edit the data, not the output. #))
+\documentclass[10.5pt,a4paper]{article}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{charter}
+\usepackage[a4paper,margin=2cm,top=1.8cm,bottom=1.8cm]{geometry}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage[hidelinks]{hyperref}
+\usepackage{microtype}
+\usepackage{needspace}
+
+\definecolor{accent}{HTML}{1F4E79}
+\definecolor{muted}{HTML}{4A5361}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\linespread{1.08}
+
+\titleformat{\section}{\large\bfseries\scshape\color{accent}}{}{0pt}{}[\vspace{1pt}\color{accent}\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{6pt}
+
+\setlist[itemize]{leftmargin=1.2em,itemsep=1pt,topsep=2pt,parsep=0pt,label={\color{muted}\textbullet}}
+
+% \entry{title}{date}{institution line}
+\newcommand{\entry}[3]{%
+  \needspace{5\baselineskip}%
+  \begin{tabularx}{\textwidth}{@{}X r@{}}
+    \textbf{#1} & {\color{muted}#2}\\
+  \end{tabularx}\\[-1pt]
+  {\itshape #3}\par}
+\newcommand{\gap}{\vspace{6pt}}
+
+\begin{document}
+
+{\centering
+  {\fontsize{24}{28}\selectfont\bfseries\color{accent} ((( p.name | md )))}\\[6pt]
+  {\color{muted}((( p.location | md ))) \;\textbar\;
+  \href{mailto:((( p.email_cv | url )))}{((( p.email_cv | md )))}\\[2pt]
+  \href{((( p.linkedin | url )))}{((( p.linkedin | replace("https://www.", "") | replace("https://", "") | trim("/") | md )))} \;\textbar\;
+  \href{((( p.github | url )))}{((( p.github | replace("https://", "") | md )))} \;\textbar\;
+  \href{((( p.scholar | url )))}{Google Scholar}}\par}
+
+\section{Research Interests}
+((( p.interests_cv | md )))
+
+\section{Education}
+((* for e in p.education *))
+\entry{((( e.degree | md )))}{((( e.years | md )))}{((( e.institution | md )))}
+((( e.result | md )))\\
+Thesis: \emph{((( e.thesis | md )))}. ((( e.supervisor_role | md ))): ((( e.supervisor | md ))).
+((* if not loop.last *))
+\gap
+
+((* endif *))
+((* endfor *))
+
+\section{Research Experience}
+((* for x in research *))
+\entry{((( x.role | md )))}{((( x.years | md )))}{((( x.place | md )))}
+\begin{itemize}
+((* for b in x.bullets *))
+  \item ((( b | md )))
+((* endfor *))
+\end{itemize}
+((* if not loop.last *))
+\gap
+
+((* endif *))
+((* endfor *))
+
+\section{Publications}
+\begin{enumerate}[leftmargin=1.8em,itemsep=4pt,topsep=2pt,label={[\arabic*]}]
+((* for pub in pubs *))
+  \item ((( pub.authors_marked | md ))). ``((( pub.title | md ))).'' ((( pub.status_text | md )))
+((* endfor *))
+\end{enumerate}
+((* if cv_projects *))
+
+\needspace{8\baselineskip}
+\section{Selected Projects}
+((* for pr in cv_projects *))
+\entry{((( pr.title | md )))}{((( pr.years | md )))}{((( (pr.cv_context or "") | md )))}
+((( (pr.cv_description or pr.summary) | md )))
+((* if not loop.last *))
+\gap
+
+((* endif *))
+((* endfor *))
+((* endif *))
+
+\section{Professional Experience}
+((* for x in professional *))
+\entry{((( x.role | md )))}{((( x.years | md )))}{((( x.place | md )))}
+\begin{itemize}
+((* for b in x.bullets *))
+  \item ((( b | md )))
+((* endfor *))
+\end{itemize}
+((* if not loop.last *))
+\gap
+
+((* endif *))
+((* endfor *))
+
+\section{Technical Skills}
+\begin{tabularx}{\textwidth}{@{}l X@{}}
+((* for s in p.skills *))
+  \textbf{((( s.label | md )))} & ((( s['items'] | md )))\\
+((* endfor *))
+\end{tabularx}
+
+\section{Honours and Scholarships}
+\begin{tabularx}{\textwidth}{@{}X r@{}}
+((* for h in p.honours *))
+  ((( h.text | md ))) & {\color{muted}((( h.years | md )))}\\
+((* endfor *))
+\end{tabularx}
+((* if p.service *))
+
+\section{Service}
+((( p.service | md )))
+((* endif *))
+
+\section{Languages}
+((( p.languages | md )))
+
+\section{References}
+((( p.references | md )))
+
+\end{document}
